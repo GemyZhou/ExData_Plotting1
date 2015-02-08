@@ -1,0 +1,17 @@
+#get tidy data set
+source("getTidyData.R")
+tidy<-getTidyData()
+
+#second plotting, outputting to png file with resolution of 480x480
+png(file="plot2.png",width=480,height=480)
+
+old<-par("mfrow")
+par(mfrow=c(1,1))
+plot(tidy$dateTime,tidy$Global_active_power,type="l",xlab="",ylab="Global Active Power (kilowatts)")
+
+#restore mfrow setting
+par(mfrow=old)
+
+#closing graphics file device 
+dev.off()
+
